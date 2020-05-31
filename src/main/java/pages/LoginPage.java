@@ -25,5 +25,4 @@ public class LoginPage {
         browser.click(signin);
     }
 
-
 }
