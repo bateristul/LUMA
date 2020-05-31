@@ -13,4 +13,15 @@ public class PageObjectManager {
     public PageObjectManager(WebDriver driver){
         basePage = new BasePage(driver);
     }
+
+    public ProductPage getProductPage(){
+        return (productPage == null) ? productPage = new ProductPage(basePage) : productPage;
+    }
+
+    public ShoppingCartPage getShoppingCartPage(){
+        return (shoppingCartPage == null) ? shoppingCartPage = new ShoppingCartPage(basePage) : shoppingCartPage;
+    }
+    public ShippingPage getShippingPage(){
+        return (shippingPage == null) ? shippingPage = new ShippingPage(basePage) : shippingPage;
+    }
 }
