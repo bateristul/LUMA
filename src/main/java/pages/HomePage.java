@@ -18,7 +18,7 @@ public class HomePage {
         return this;
     }
 
-    public LoginPage clickSignIn(){
+    public LoginPage clickSignInLink(){
         browser.clickLink("Sign In");
         return new LoginPage(browser);
     }

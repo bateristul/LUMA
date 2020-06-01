@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 public class LoginPage {
 
     private BasePage browser;
-    private By username = By.id("email");
-    private By password = By.id("pass");
+    private By usernameform = By.id("email");
+    private By passwordform = By.id("pass");
     private By signin = By.id("send2");
 
     public LoginPage(BasePage browser){
@@ -19,9 +19,9 @@ public class LoginPage {
         return this;
     }
 
-    public void LoginFrom(String text1, String text2){
-        browser.typeIn(text1, username);
-        browser.typeIn(text2, password);
+    public void LoginFrom(String username, String password){
+        browser.typeIn(username, usernameform);
+        browser.typeIn(password, passwordform);
         browser.click(signin);
     }
 
