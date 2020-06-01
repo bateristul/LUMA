@@ -5,6 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePage {
 
     private WebDriver driver;
@@ -49,6 +51,11 @@ public class BasePage {
         find(selector).sendKeys(Keys.HOME,Keys.chord(Keys.SHIFT,Keys.END));
         find(selector).clear();
         find(selector).sendKeys(text);
+    }
+
+    public void search(String text, By selector){
+        find(selector).sendKeys(text);
+        find(selector).submit();
     }
 
     public WebElement find(By selector) {
