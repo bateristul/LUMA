@@ -19,7 +19,7 @@ public class LoginPage {
         return this;
     }
 
-    public void LoginFrom(String username, String password){
+    public void ValidateCredentials(String username, String password){
         browser.typeIn(username, usernameform);
         browser.typeIn(password, passwordform);
         browser.click(signin);
