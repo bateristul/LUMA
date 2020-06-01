@@ -6,31 +6,33 @@ import org.openqa.selenium.By;
 public class ShippingPage {
 
     private BasePage browser;
-    private By signIn = By.xpath("//*[@id=\"checkout\"]/div[1]/button");
+    private By signInLink = By.xpath("//*[@id=\"checkout\"]/div[1]/button");
     private By emailForm = By.id("login-email");
     private By passForm = By.id("login-password");
     private By signInButton = By.cssSelector("#modal-content-6 > div > div > div.block-content > form > div.actions-toolbar > div.primary > button");
-    private By firstname = By.id("#X1D25GC");
+    private By firstname = By.cssSelector("#shipping-new-address-form > div:nth-child(1) > div > input");
+    //private By firstname = By.id("#X1D25GC");
 
     public ShippingPage(BasePage browser){
         this.browser = browser;
     }
 
-    public void clickToSignIn(){
-        browser.waitUntilIsVisible(signIn);
-        browser.waitUntilIsClickable(signIn);
-        browser.click(signIn);
+    public void clickToSignInLink(){
+        browser.waitUntilIsVisible(signInLink);
+        browser.waitUntilIsClickable(signInLink);
+        browser.click(signInLink);
     }
 
-    public void SignIn(String text1, String text2){
-        browser.typeIn(text1, emailForm);
-        browser.typeIn(text2, passForm);
+    public void SignIn(String email, String password){
+        browser.typeIn(email, emailForm);
+        browser.typeIn(password, passForm);
         browser.click(signInButton);
         browser.waitForThePageToBeLoaded();
     }
 
-    public String FirstnameStatus(){
-        browser.waitForElement(firstname);
+    public String checkFirstname(){
+        browser.waitForThePageToBeLoaded();
+        browser.waitUntilIsVisible(firstname);
         return browser.getMessage(firstname);
     }
 }

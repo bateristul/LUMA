@@ -9,6 +9,7 @@ public class PageObjectManager {
     private ShoppingCartPage shoppingCartPage;
     private ProductPage productPage;
     private ShippingPage shippingPage;
+    private HomePage homePage;
 
     public PageObjectManager(WebDriver driver){
         basePage = new BasePage(driver);
@@ -23,5 +24,9 @@ public class PageObjectManager {
     }
     public ShippingPage getShippingPage(){
         return (shippingPage == null) ? shippingPage = new ShippingPage(basePage) : shippingPage;
+    }
+
+    public HomePage getHomePage(){
+        return (homePage == null) ? homePage = new HomePage(basePage) : homePage;
     }
 }

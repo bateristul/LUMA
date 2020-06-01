@@ -11,6 +11,11 @@ public class HomePage {
         this.browser = browser;
     }
 
+    public HomePage open (){
+        browser.visit("https://magento.nublue.co.uk/");
+        return this;
+    }
+
     public void SearchProduct(String text){
         browser.search(text, search);
         browser.clickLink(text);
