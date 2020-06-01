@@ -51,6 +51,11 @@ public class BasePage {
         find(selector).sendKeys(text);
     }
 
+    public void search(String text, By selector){
+        find(selector).sendKeys(text);
+        find(selector).submit();
+    }
+
     public WebElement find(By selector) {
         waitForThePageToBeLoaded();
         WebElement node;
