@@ -4,7 +4,9 @@ import framework.BasePage;
 import org.openqa.selenium.By;
 
 public class HomePage {
-    BasePage browser;
+
+    private BasePage browser;
+    private By welcome = By.xpath("//span[text()='Welcome, Veronica Costello!']");
     private By search = By.id("search");
 
     public HomePage(BasePage browser){
@@ -16,8 +18,19 @@ public class HomePage {
         return this;
     }
 
+    public LoginPage clickSignInLink(){
+        browser.clickLink("Sign In");
+        return new LoginPage(browser);
+    }
+
+    public String ValidateLogin(){
+        browser.waitForElement(welcome);
+        return browser.getMessage(welcome);
+    }
+
     public void SearchProduct(String text){
         browser.search(text, search);
         browser.clickLink(text);
     }
+
 }

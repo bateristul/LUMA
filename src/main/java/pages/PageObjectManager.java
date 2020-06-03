@@ -10,6 +10,7 @@ public class PageObjectManager {
     private ProductPage productPage;
     private ShippingPage shippingPage;
     private HomePage homePage;
+    private LoginPage loginPage;
 
     public PageObjectManager(WebDriver driver){
         basePage = new BasePage(driver);
@@ -29,4 +30,9 @@ public class PageObjectManager {
     public HomePage getHomePage(){
         return (homePage == null) ? homePage = new HomePage(basePage) : homePage;
     }
+
+    public LoginPage getLoginPage() {
+        return (loginPage == null) ? loginPage = new LoginPage(basePage) : loginPage;
+    }
+
 }
