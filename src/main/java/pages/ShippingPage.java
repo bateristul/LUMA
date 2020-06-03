@@ -11,7 +11,6 @@ public class ShippingPage {
     private By passForm = By.id("login-password");
     private By signInButton = By.cssSelector("#modal-content-6 > div > div > div.block-content > form > div.actions-toolbar > div.primary > button");
     private By firstname = By.cssSelector("#shipping-new-address-form > div:nth-child(1) > div > input");
-    //private By firstname = By.id("#X1D25GC");
 
     public ShippingPage(BasePage browser){
         this.browser = browser;
