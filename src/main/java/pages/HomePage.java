@@ -33,4 +33,9 @@ public class HomePage {
         browser.clickLink(text);
     }
 
+    public RegisterPage clickCreatAnAccount(){
+        browser.clickLink("Create an Account");
+        return new RegisterPage(browser);
+    }
+
 }
