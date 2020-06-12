@@ -9,6 +9,7 @@ public class ProductPage {
     private By color = By.id("option-label-color-93-item-50");
     private By addToCart = By.id("product-addtocart-button");
     private By shoppingCart = By.cssSelector("#maincontent > div.page.messages > div:nth-child(2) > div > div > div > a");
+    private By toWishList = By.cssSelector(".action.towishlist");
 
     public ProductPage(BasePage browser){
         this.browser = browser;
@@ -24,6 +25,10 @@ public class ProductPage {
     public void clickOnShoppingCart(){
         browser.waitUntilIsVisible(shoppingCart);
         browser.clickLink("shopping cart");
+    }
+
+    public void clickWishList(){
+        browser.click(toWishList);
     }
 
 }
