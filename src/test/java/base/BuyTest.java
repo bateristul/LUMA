@@ -25,8 +25,8 @@ public class BuyTest extends  BaseTests {
     }
 
 
-    @Test
-    public void validateLoginInBuingProcess(){
+    @Test(priority = 1)
+    public void validateLoginInBuyingProcess(){
         homePage.open().SearchProduct("Marco Lightweight Active Hoodie");
         productPage.selectSizeAndColor();
         productPage.clickOnShoppingCart();
@@ -35,4 +35,7 @@ public class BuyTest extends  BaseTests {
         shippingPage.SignIn("roni_cost@example.com", "roni_cost3@example.com");
         //assertTrue(shippingPage.checkFirstname().contains("Veronica"), "The text is incorrect!");
     }
+
+    @Test(priority = 2)
+    public void searchItemAndBuyIt(){}
 }
