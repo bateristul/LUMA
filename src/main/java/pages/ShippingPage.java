@@ -14,6 +14,8 @@ public class ShippingPage {
     private By adress = By.cssSelector("#shipping-new-address-form > fieldset >div.control > div.field._required");
     private By city = By.cssSelector("#shipping-new-address-form > div:nth-child(5) > div > input");
     private By dropdown = By.xpath("/html/body/div[1]/main/div[2]/div/div[2]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select");
+    private By shippingMethods = By.xpath("//*[@id=\"checkout-shipping-method-load\"]/table/tbody/tr[1]/td[1]/input");
+
 
     public ShippingPage(BasePage browser){
         this.browser = browser;
@@ -39,9 +41,16 @@ public class ShippingPage {
         return browser.getMessage(firstname);
     }
 
-    public void completeTheForm(String Street_Adress, String City){
+    public void completeTheForm(String Street_Adress, String City, Integer index){
+        browser.waitForThePageToBeLoaded();
+        browser.waitUntilIsVisible(adress);
+        browser.waitUntilIsVisible(city);
         browser.typeIn(Street_Adress, adress);
         browser.typeIn(City, city);
-        browser.select(dropdown, 30);
+        browser.select(dropdown, index);
+    }
+
+    public void checkMethods(){
+        browser.selectCheckbox(shippingMethods);
     }
 }

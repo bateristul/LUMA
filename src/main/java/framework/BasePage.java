@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePage {
 
     private WebDriver driver;
@@ -80,6 +82,23 @@ public class BasePage {
             Thread.sleep(miliseconds);
         } catch (InterruptedException in) {
         }
+    }
+
+    public String selectCheckbox(By selector){
+        Boolean isChecked = false;
+        List<WebElement> checkboxes = driver.findElements(selector);
+
+        int size = checkboxes.size();
+        System.out.println("The size of list is: " + size);
+
+        for (int i=0; i<size; i++){
+            isChecked = checkboxes.get(i).isSelected();
+            if(isChecked == false){
+                checkboxes.get(i).click();
+            }
+        }
+
+        return null;
     }
 
     // WAITS METHODS
